@@ -20,6 +20,7 @@
     </div>
 </div>
   <div class="container">
+    {{> topicForm}}
   {{>listTopics}}
   </div>
 </body>
@@ -30,7 +31,15 @@
     <p>
       <div class="col-lg-4">
       Descrição: {{desc}}<br>
-      Instrutor: {{instructor}}<br>
+      Instrutor: 
+      {{#if instructor._id}}
+        {{instructor.name}}
+      {{else}}
+        {{#if currentUser}}
+          <button id="assign">Faça sua parte!</button>
+        {{/if}}
+      {{/if}}
+      <br>
       Curtidas: {{likes}}<br>
       {{#if currentUser}}
         {{#if userHaveLiked}}
@@ -43,4 +52,14 @@
     </p>
     </div>
   {{/each}}
+</template>
+
+<template name="topicForm">
+  <form class="topicForm">
+    <div class="formgroup">
+      <label for="desc">Descrição</label>
+      <input type="text" name="desc" id="desc">
+    </div>
+    <input type="submit" id="submitForm">
+  </form>
 </template>

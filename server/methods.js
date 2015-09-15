@@ -1,9 +1,9 @@
 Meteor.methods({
 	initData: function(){
-		Meteor.call("insertTopic", "servidor REST", "Felipe");
-		Meteor.call("insertTopic", "API REST do modelos de dados MVC", "Felipe");
-		Meteor.call("insertTopic", "EAI", "Felipe");
-		Meteor.call("insertTopic", "Dicas de performance em ADVPL", "Felipe");
+		Meteor.call("insertTopic", "servidor REST");
+		Meteor.call("insertTopic", "API REST do modelos de dados MVC");
+		Meteor.call("insertTopic", "EAI");
+		Meteor.call("insertTopic", "Dicas de performance em ADVPL");
 	},
 	insertTopic: function (desc, instructor) {
 		//Make sure the user is logged in before inserting a task
@@ -13,7 +13,7 @@ Meteor.methods({
 
 		Topics.insert({
 			desc: desc,
-			instructor: instructor,
+			instructor: instructor || {},
 			likes: 0,
 			createdAt: new Date(),
 			owner: Meteor.userId(),
@@ -44,5 +44,25 @@ Meteor.methods({
 	var topic = Topics.findOne(query);
 	if(topic)
     	Topics.update(topicId, { $inc: { likes: -1}, $pop: {likers: Meteor.userId()} });
+  },
+  assign: function(topicId) {
+  	var userId = Meteor.userId();
+  	if (! userId) {
+		throw new Meteor.Error("not-authorized");
+	};
+	var query = { $and : [
+					 { _id   : topicId } ,
+					 { "instructor._id": null }
+					 ]};
+	var topic = Topics.findOne(query);
+
+	if(topic)
+		var user = Meteor.user();
+
+		var instructor = {
+			_id  : userId,
+			name : user.username
+		};
+    	Topics.update(topicId, {$set: {instructor : instructor}});
   }
 });
