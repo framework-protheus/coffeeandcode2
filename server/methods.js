@@ -1,7 +1,7 @@
 Meteor.methods({
-  insertTopic: function (desc, instructor) {
-     //Make sure the user is logged in before inserting a task
-		 if (! Meteor.userId()) {
+	insertTopic: function (desc, instructor) {
+		//Make sure the user is logged in before inserting a task
+		if (! Meteor.userId()) {
 		 	throw new Meteor.Error("not-authorized");
 		};
 
