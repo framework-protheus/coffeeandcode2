@@ -1,4 +1,10 @@
 Meteor.methods({
+	initData: function(){
+		Meteor.call("insertTopic", "servidor REST", "Felipe");
+		Meteor.call("insertTopic", "API REST do modelos de dados MVC", "Felipe");
+		Meteor.call("insertTopic", "EAI", "Felipe");
+		Meteor.call("insertTopic", "Dicas de performance em ADVPL", "Felipe");
+	},
 	insertTopic: function (desc, instructor) {
 		//Make sure the user is logged in before inserting a task
 		if (! Meteor.userId()) {
