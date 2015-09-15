@@ -1,0 +1,19 @@
+<head>
+  <title>Coffe and Code</title>
+</head>
+
+<body>
+  <h1>Coffe and Code</h1> 
+  {{>listTopics}}
+</body>
+
+<template name="listTopics">
+  {{#each topics}}
+    <p>
+      Descrição: {{desc}}<br>
+      Instrutor: {{instructor}}<br>
+      Curtidas: {{likes}}<br>
+      <button id='countLike'>Like me</button>
+    </p>
+  {{/each}}
+</template>
