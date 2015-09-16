@@ -1,1 +1,14 @@
 /* CSS declarations go here */
+p{margin-bottom: 3px;}
+
+.dislike{
+	margin-bottom: 8px;
+}
+
+.countLike{
+	margin-bottom: 8px;
+}
+
+.topicForm{
+	margin: 10px 0 30px;
+}

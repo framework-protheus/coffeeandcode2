@@ -20,46 +20,62 @@
     </div>
 </div>
   <div class="container">
-    {{> topicForm}}
-  {{>listTopics}}
+    <div class="row">
+      <div class="col-lg-8">
+        {{> topicForm}}
+        {{> listTopics}}
+      </div>
+      <div class="col-lg-4">
+        <p>Descrição: </p>
+        <p>Instrutor: </p>
+        <p>Votos: </p>
+        <br>
+        <br>
+        <p>Descrição: </p>
+        <p>Instrutor: </p>
+        <p>Votos: </p>
+      </div>
+    </div>
   </div>
 </body>
 
-<template name="listTopics">
-  {{#each topics}}
-  <div class="row">
-    <p>
-      <div class="col-lg-4">
-      Descrição: {{desc}}<br>
-      Instrutor: 
-      {{#if instructor._id}}
-        {{instructor.name}}
-      {{else}}
-        {{#if currentUser}}
-          <button id="assign">Faça sua parte!</button>
-        {{/if}}
-      {{/if}}
-      <br>
-      Curtidas: {{likes}}<br>
-      {{#if currentUser}}
-        {{#if userHaveLiked}}
-          <button id='dislike'>Dislike me</button>
-        {{else}}
-          <button id='countLike'>Like me</button>
-        {{/if}}
-      {{/if}}
-      </div>
-    </p>
-    </div>
-  {{/each}}
-</template>
 
 <template name="topicForm">
   <form class="topicForm">
     <div class="formgroup">
       <label for="desc">Descrição</label>
       <input type="text" name="desc" id="desc">
+      test
     </div>
-    <input type="submit" id="submitForm">
+    <input type="submit" id="submitForm" class="btn btn-primary">
   </form>
+</template>
+
+
+<template name="listTopics">
+  {{#each topics}}
+  <div class="row">
+      <p>Descrição: {{desc}}</p>
+      <p>Instrutor: </p>
+      {{#if instructor._id}}
+        {{instructor.name}}
+      {{else}}
+        {{#if currentUser}}
+          <button id="assign" class="btn btn-primary">Faça sua parte!</button>
+        {{/if}}
+      {{/if}}
+      <br>
+      Curtidas: {{likes}}<br>
+      {{#if currentUser}}
+        {{#if userHaveLiked}}
+          <button id='dislike' class="btn btn-primary">Dislike me</button>
+        {{else}}
+          <button id='countLike' class="btn btn-primary">Like me</button>
+        {{/if}}
+      {{/if}}
+      <br>
+      <br>
+      <br>
+    </div>
+  {{/each}}
 </template>
