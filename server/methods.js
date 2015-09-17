@@ -13,11 +13,8 @@ Meteor.methods({
 
 		Topics.insert({
 			desc: desc,
-			instructor: instructor || {},
-			likes: 0,
-			createdAt: new Date(),
-			owner: Meteor.userId(),
-			likers: []
+			instructor: instructor,
+			likes: 0
 			// username: Meteor.user().username
 		});
 	},
