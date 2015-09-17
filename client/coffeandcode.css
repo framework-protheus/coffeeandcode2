@@ -1,14 +1,36 @@
 /* CSS declarations go here */
-p{margin-bottom: 3px;}
+body{
+	color: #666;
+}
 
-.dislike{
+p{
+	margin-bottom: 3px;
+}
+
+button, input{
+	margin: 6px 0;
+}
+
+
+
+.dislike, .countLike, .instructor_btn{
 	margin-bottom: 8px;
 }
 
-.countLike{
-	margin-bottom: 8px;
-}
 
 .topicForm{
-	margin: 10px 0 30px;
+	padding: 0 25px 10px 0;
+}
+
+.topics, .form_container{
+	padding: 15px 0 10px 25px;
+	margin-bottom: 15px;
+	border: 1px solid #bbb;
+	border-radius: 6px;
+}
+
+.subtitle{
+	margin:8px 0 12px 0;
+	padding-bottom:6px;
+	border-bottom: 1px solid #bbb;
 }

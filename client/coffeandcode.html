@@ -41,41 +41,41 @@
 
 
 <template name="topicForm">
-  <form class="topicForm">
-    <div class="formgroup">
-      <label for="desc">Descrição</label>
-      <input type="text" name="desc" id="desc">
-      test
-    </div>
-    <input type="submit" id="submitForm" class="btn btn-primary">
-  </form>
+  <div class="form_container">
+    <form class="topicForm">
+      <div class="formgroup">
+        <h2 class="subtitle">Novo tópico</h2>
+        <label for="desc">Descrição</label>
+        <input type="text" name="desc" id="desc">
+      </div>
+      <input type="submit" id="submitForm" class="btn btn-primary">
+    </form>
+  </div>
 </template>
 
 
 <template name="listTopics">
   {{#each topics}}
-  <div class="row">
+    <div class="topics">
       <p>Descrição: {{desc}}</p>
-      <p>Instrutor: </p>
+      <p>Instrutor:
       {{#if instructor._id}}
         {{instructor.name}}
       {{else}}
         {{#if currentUser}}
-          <button id="assign" class="btn btn-primary">Faça sua parte!</button>
+          <button id="assign" class="btn btn-default instructor_btn">Seja o instrutor desse tópico!</button>
         {{/if}}
       {{/if}}
+      </p>
       <br>
       Curtidas: {{likes}}<br>
       {{#if currentUser}}
         {{#if userHaveLiked}}
-          <button id='dislike' class="btn btn-primary">Dislike me</button>
+          <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
         {{else}}
-          <button id='countLike' class="btn btn-primary">Like me</button>
+          <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
         {{/if}}
       {{/if}}
-      <br>
-      <br>
-      <br>
     </div>
   {{/each}}
 </template>
