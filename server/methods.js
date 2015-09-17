@@ -17,49 +17,51 @@ Meteor.methods({
 			likes: 0
 			// username: Meteor.user().username
 		});
-  },
-  deleteTopic: function (topicsId) {
-    Topics.remove(topicsId);
-  },
-  updateTopic: function (topicId, desc, instructor) {
-    Topics.update(topicsId, { $set: { desc: desc, instructor: instructor} });
-  },
-  like: function (topicId) {
-  	if (! Meteor.userId()) {
-	 	throw new Meteor.Error("not-authorized");
-	};
-    Topics.update(topicId, { $inc: { likes: 1}, $push: {likers: Meteor.userId()} });
-  },
-  dislike: function (topicId) {
-  	if (! Meteor.userId()) {
-	 	throw new Meteor.Error("not-authorized");
-	};
-	var query = { $and : [
-						 { _id   : topicId } ,
-						 { likers: {$in: [Meteor.userId()] } }
-						 ]};
-	var topic = Topics.findOne(query);
-	if(topic)
-    	Topics.update(topicId, { $inc: { likes: -1}, $pop: {likers: Meteor.userId()} });
-  },
-  assign: function(topicId) {
-  	var userId = Meteor.userId();
-  	if (! userId) {
-		throw new Meteor.Error("not-authorized");
-	};
-	var query = { $and : [
-					 { _id   : topicId } ,
-					 { "instructor._id": null }
-					 ]};
-	var topic = Topics.findOne(query);
+	},
+	deleteTopic: function (topicsId) {
+		Topics.remove(topicsId);
+	},
+	updateTopic: function (topicId, desc, instructor) {
+		Topics.update(topicsId, { $set: { desc: desc, instructor: instructor} });
+	},
+	like: function (topicId) {
+		var userId = Meteor.userId();
+		if (!userId)
+			throw new Meteor.Error("not-authorized");
 
-	if(topic)
+		Topics.update(topicId, { $inc: { likes: 1}, $push: {likers: userId} });
+	},
+	dislike: function (topicId) {
+		var userId = Meteor.userId();
+		if (!userId)
+			throw new Meteor.Error("not-authorized");
+
+		var query = { $and : [
+							 { _id   : topicId } ,
+							 { likers: {$in: [userId] } }
+							 ]};
+		var topic = Topics.findOne(query);
+		if(topic)
+			Topics.update(topicId, { $inc: { likes: -1}, $pop: {likers: userId} });
+	},
+	assign: function(topicId) {
 		var user = Meteor.user();
+		if (! user)
+			throw new Meteor.Error("not-authorized");
 
-		var instructor = {
-			_id  : userId,
-			name : user.username
-		};
-    	Topics.update(topicId, {$set: {instructor : instructor}});
-  }
+		var query = { $and : [
+			{ _id   : topicId } ,
+			{ "instructor._id": null }
+		]};
+
+		var topic = Topics.findOne(query);
+
+		if(topic){
+			var instructor = {
+				_id  : user._id,
+				name : user.username
+			};
+			Topics.update(topicId, {$set: {instructor : instructor}});
+		}
+	}
 });

@@ -20,46 +20,62 @@
     </div>
 </div>
   <div class="container">
-    {{> topicForm}}
-  {{>listTopics}}
+    <div class="row">
+      <div class="col-lg-8">
+        {{> topicForm}}
+        {{> listTopics}}
+      </div>
+      <div class="col-lg-4">
+        <p>Descrição: </p>
+        <p>Instrutor: </p>
+        <p>Votos: </p>
+        <br>
+        <br>
+        <p>Descrição: </p>
+        <p>Instrutor: </p>
+        <p>Votos: </p>
+      </div>
+    </div>
   </div>
 </body>
 
+
+<template name="topicForm">
+  <div class="form_container">
+    <form class="topicForm">
+      <div class="formgroup">
+        <h2 class="subtitle">Novo tópico</h2>
+        <label for="desc">Descrição</label>
+        <input type="text" name="desc" id="desc">
+      </div>
+      <input type="submit" id="submitForm" class="btn btn-primary">
+    </form>
+  </div>
+</template>
+
+
 <template name="listTopics">
   {{#each topics}}
-  <div class="row">
-    <p>
-      <div class="col-lg-4">
-      Descrição: {{desc}}<br>
-      Instrutor: 
+    <div class="topics">
+      <p>Descrição: {{desc}}</p>
+      <p>Instrutor:
       {{#if instructor._id}}
         {{instructor.name}}
       {{else}}
         {{#if currentUser}}
-          <button id="assign">Faça sua parte!</button>
+          <button id="assign" class="btn btn-default instructor_btn">Seja o instrutor desse tópico!</button>
         {{/if}}
       {{/if}}
+      </p>
       <br>
       Curtidas: {{likes}}<br>
       {{#if currentUser}}
         {{#if userHaveLiked}}
-          <button id='dislike'>Dislike me</button>
+          <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
         {{else}}
-          <button id='countLike'>Like me</button>
+          <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
         {{/if}}
       {{/if}}
-      </div>
-    </p>
     </div>
   {{/each}}
-</template>
-
-<template name="topicForm">
-  <form class="topicForm">
-    <div class="formgroup">
-      <label for="desc">Descrição</label>
-      <input type="text" name="desc" id="desc">
-    </div>
-    <input type="submit" id="submitForm">
-  </form>
 </template>
