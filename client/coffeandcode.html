@@ -3,87 +3,8 @@
 </head>
 
 <body>
- <div class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">Coffe and Code</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-            {{> loginButtons}}
-        </ul>
-    </div>
-</div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8">
-        {{#if isInRole 'admin'}}
-          {{> eventForm}}
-        {{/if}}
-        {{> topicForm}}
-        {{> listTopics}}
-      </div>
-      <div class="col-lg-4">
-        <p>Descrição: </p>
-        <p>Instrutor: </p>
-        <p>Votos: </p>
-        <br>
-        <br>
-        <p>Descrição: </p>
-        <p>Instrutor: </p>
-        <p>Votos: </p>
-      </div>
-    </div>
-  </div>
+
 </body>
 
 
-<template name="topicForm">
-  <div class="form_container">
-    <form class="topicForm">
-      <div class="formgroup">
-        <h2 class="subtitle">Novo tópico</h2>
-        <label for="desc">Descrição</label>
-        <input type="text" name="desc" id="desc">
-      </div>
-      <input type="submit" id="submitForm" class="btn btn-primary">
-    </form>
-  </div>
-</template>
 
-
-<template name="listTopics">
-  {{#each topics}}
-    <div class="topics">
-      <p>Descrição: {{desc}}</p>
-      <p>Instrutor:
-      {{#if instructor._id}}
-        {{instructor.name}}
-      {{else}}
-        {{#if currentUser}}
-          <button id="assign" class="btn btn-default instructor_btn">Seja o instrutor desse tópico!</button>
-        {{/if}}
-      {{/if}}
-      </p>
-      <br>
-      Curtidas: {{likes}}<br>
-      {{#if currentUser}}
-        {{#if userHaveLiked}}
-          <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
-        {{else}}
-          <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
-        {{/if}}
-      {{/if}}
-    </div>
-  {{/each}}
-</template>
-
-
-<template name="eventForm">
-  <h1>Form de evento!</h1>
-</template>
