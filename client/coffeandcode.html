@@ -22,6 +22,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
+        {{#if isInRole 'admin'}}
+          {{> eventForm}}
+        {{/if}}
         {{> topicForm}}
         {{> listTopics}}
       </div>
@@ -78,4 +81,9 @@
       {{/if}}
     </div>
   {{/each}}
+</template>
+
+
+<template name="eventForm">
+  <h1>Form de evento!</h1>
 </template>

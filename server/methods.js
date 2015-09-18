@@ -63,5 +63,12 @@ Meteor.methods({
 			};
 			Topics.update(topicId, {$set: {instructor : instructor}});
 		}
+	},
+	makeItAdmin: function(){
+		var userId = Meteor.userId();
+		if (!userId)
+			throw new Meteor.Error("not-authorized");
+
+		Roles.addUsersToRoles(userId, 'admin');
 	}
 });
