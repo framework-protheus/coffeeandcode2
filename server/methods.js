@@ -27,6 +27,11 @@ function flatten(x, prefix, agg) {
     }
     return agg;
 }
+
+
+/**
+* Set methods dynamic
+**/
 _.each(Meteor.settings.methods, function(a,b){
 	var method = {}
 	method[b] = a
