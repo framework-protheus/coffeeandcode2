@@ -1,0 +1,7 @@
+<template name="rankEvent">
+	{{#if Template.subscriptionsReady}}
+		{{#each events}}
+			{{> miniEvent}}
+		{{/each}}
+	{{/if}}
+</template>
