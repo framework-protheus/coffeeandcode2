@@ -65,3 +65,10 @@ Template.miniEvent.helpers({
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
+
+
+
+
+Template.registerHelper('formatDate', function(date) {
+  return moment(date).format('DD-MM-YYYY');
+});

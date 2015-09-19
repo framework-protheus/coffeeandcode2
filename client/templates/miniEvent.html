@@ -1,7 +1,7 @@
 <template name="miniEvent">
 	<div class="col-lg-4">
 		<br>
-		<p>Data: {{date}}</p>
+		<p>Data: {{formatDate date}}</p>
 		{{#if topic}}
 			<p>Descrição: {{topic.desc}}</p>
 			<p>Instrutor: {{topic.instructor.name}}</p>
