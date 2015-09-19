@@ -33,21 +33,33 @@ Template.topicForm.events({
   }
 });
 
-
 Template.rankEvent.helpers({
-
+  events : function() {
+    return Events.find({},{limit:2}).map(function(event, index) {
+      event.index = index
+      return event;
+    });
+  },
+  getTopicForEvent : function(eventIndex){
+    topic = Topics.find({},{limit:1});
+    return topic;
+  }
 });
 
-// Autorun will be executed each time this collection has change (update, delete, insert)
-Template.rankEvent.onRendered(function() {
-      _this = this;
-      this.autorun(function() {
-        //var dataContext = Template.currentData();
-        _this.subscribe('events', {limit : 2})
-        //_this.data.event = Events.find({},{skip: _this.data.number-1, limit : 1}).fetch()[0];
-        //console.log(event);
-        
-      });
+Template.miniEvent.helpers({
+  topic : function(){
+    var tmpl = Template.instance();
+    topic = Topics.find({},
+      {   limit : 1
+        , skip  : tmpl.data.index
+        , sort  : {likes: -1, createdAt:-1}
+      }).fetch();
+
+    if(topic.length > 0){
+      topic = topic[0]
+    }
+    return topic;
+  }
 });
 
 Accounts.ui.config({
