@@ -22,9 +22,9 @@ button, input{
 	padding: 0 25px 10px 0;
 }
 
-.topics, .form_container{
-	padding: 15px 0 10px 25px;
-	margin-bottom: 15px;
+.topics, .form_container, .rank{
+	padding: 15px 15px 10px 25px;
+	margin: 0 20px 15px 0;
 	border: 1px solid #bbb;
 	border-radius: 6px;
 }
@@ -33,4 +33,40 @@ button, input{
 	margin:8px 0 12px 0;
 	padding-bottom:6px;
 	border-bottom: 1px solid #bbb;
+}
+
+.rank{
+	position: fixed;
+	width: 40%;
+}
+
+.mini_event{
+	margin-top: 15px;
+}
+
+.information_open{
+	color: red;
+	cursor: help;
+}
+.information_open::after{
+	content: " - Evento aberto ainda dependendo de votação!";
+	color: red;
+	display: none;
+}
+.information_open:hover::after{
+	display: inline;
+}
+
+
+.information_close{
+	color: green;
+	cursor: help;
+}
+.information_close::after{
+	content: " - Evento marcado para data acima!";
+	color: green;
+	display: none;
+}
+.information_close:hover::after{
+	display: inline;
 }

@@ -1,5 +1,8 @@
 <template name="rankEvent">
-	{{#each events}}
-		{{> miniEvent}}
-	{{/each}}
+	<div class="rank">
+		<h2 class="subtitle">Próximos eventos</h2>
+		{{#each events}}
+			{{> miniEvent}}
+		{{/each}}
+	</div>
 </template>

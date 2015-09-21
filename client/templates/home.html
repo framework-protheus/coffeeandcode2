@@ -17,14 +17,16 @@
 </div>
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-7">
         {{#if isInRole 'admin'}}
           {{> eventForm}}
         {{/if}}
         {{> topicForm}}
         {{> listTopics}}
       </div>
-      {{> rankEvent}}
+      <div class="col-lg-5">
+        {{> rankEvent}}
+      </div>
     </div>
   </div>
 </template>
