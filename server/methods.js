@@ -1,9 +1,9 @@
 Meteor.methods({
 	initData: function(){
-		Meteor.call("insertTopic", "servidor REST");
-		Meteor.call("insertTopic", "API REST do modelos de dados MVC");
-		Meteor.call("insertTopic", "EAI");
-		Meteor.call("insertTopic", "Dicas de performance em ADVPL");
+		Meteor.call("topics.insert", "servidor REST");
+		Meteor.call("topics.insert", "API REST do modelos de dados MVC");
+		Meteor.call("topics.insert", "EAI");
+		Meteor.call("topics.insert", "Dicas de performance em ADVPL");
 	},	
 	makeItAdmin: function(){
 		var userId = Meteor.userId();
