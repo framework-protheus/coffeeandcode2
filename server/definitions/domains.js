@@ -1,0 +1,1 @@
+Meteor.settings.domains = ["@totvs.com.br"];
