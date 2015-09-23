@@ -1,6 +1,18 @@
 Meteor.subscribe("topics");
 Meteor.subscribe("events");
 
+Template.navbar.events({
+  'click .saml-login': function(event, template){
+    event.preventDefault();
+    var provider = $(event.target).data('provider');
+    Meteor.loginWithSaml({
+        provider:provider
+    }, function(error, result){
+        //handle errors and result
+    });
+  }
+});
+
 Template.listTopics.helpers({
 	topics: Topics.find({}, {sort: {likes: -1, createdAt:-1}}),
 	userHaveLiked: function(){
