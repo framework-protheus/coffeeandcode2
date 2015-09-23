@@ -70,5 +70,6 @@ Accounts.ui.config({
 
 
 Template.registerHelper('formatDate', function(date) {
-  return moment(date).format('DD-MM-YYYY');
+  var dt = new Date(date);
+  return moment(dt).format('DD-MM-YYYY');
 });
