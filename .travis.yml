@@ -1,0 +1,11 @@
+sudo: required
+language: node_js
+node_js:
+  - "0.12"
+install: 
+  - "curl https://install.meteor.com | /bin/sh" 
+  - "meteor update"
+services:
+  - mongodb
+script: 
+  - "meteor --test --once"
