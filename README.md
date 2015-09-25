@@ -1,4 +1,4 @@
-# Coffe And Code
+# Coffee And Code
 
 Meteor project to allow people:
  - make sugestions about themes to discuss;
