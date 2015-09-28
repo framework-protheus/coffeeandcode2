@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
-        {{> topicForm}}
+        {{#if currentUser}}
+          {{> topicForm}}
+        {{/if}}
         {{> listTopics}}
       </div>
       <div class="col-lg-5">
