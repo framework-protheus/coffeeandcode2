@@ -16,8 +16,11 @@
               {{/if}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <!-- <a href="#" class="saml-login" data-provider="TotvsLabs">Totvs Labs</a> -->
-                {{> loginButtons}}
+                {{#if currentUser}}
+                    {{ fullUserName }} - <a href="#" id="logout">Logout</a>
+                {{else}}
+                    <a href="#" class="saml-login" data-provider="TotvsLabs">Login with Fluig Identity</a>
+                {{/if}}
             </ul>
         </div>
     </div>

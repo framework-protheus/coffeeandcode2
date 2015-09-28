@@ -10,7 +10,17 @@ Template.navbar.events({
     }, function(error, result){
         //handle errors and result
     });
+  },
+  'click #logout': function(event, template){
+    event.preventDefault();
+    Meteor.logout();
   }
+});
+
+Template.navbar.helpers({
+  fullUserName: function(){
+    return Meteor.user().profile.fullname
+  } 
 });
 
 Template.listTopics.helpers({
