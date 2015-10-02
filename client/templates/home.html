@@ -1,15 +1,13 @@
 <template name="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-7">
-        {{#if currentUser}}
-          {{> newTopic}}
-        {{/if}}
-        {{> listTopics}}
-      </div>
-      <div class="col-lg-5">
-        {{> rankEvent}}
-      </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--7-col">
+      {{#if currentUser}}
+        {{> newTopic}}
+      {{/if}}
+      {{> listTopics}}
+    </div>
+    <div class="mdl-cell mdl-cell--5-col">
+      {{> rankEvent}}
     </div>
   </div>
 </template>

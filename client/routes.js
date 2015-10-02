@@ -12,10 +12,16 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 	only : ['eventForm']
 });
 
-Router.route('/', function () {
-  this.render('home');
+Router.route('/', {
+  name: 'home',
+  template: 'home'
 });
 
-Router.route('/eventForm', function () {
-  this.render('eventForm');
+Router.route('/eventForm', {
+  name: 'eventForm',
+  template: 'eventForm'
+});
+
+Router.configure({
+    layoutTemplate: 'main'
 });

@@ -1,0 +1,39 @@
+<template name="main">
+	<body> <!-- THIS BODY Is NECESSARY JUST TO MAKE TEMAPLATE EVENTS WORKS (https://github.com/Zodiase/meteor-mdl/issues/2) -->
+	  <!-- always shows a header, even in smaller screens. -->
+	  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	    <header class="mdl-layout__header">
+	      <div class="mdl-layout__header-row">
+	        <!-- title -->
+	        <span class="mdl-layout-title">Coffee and code</span>
+	        <!-- add spacer, to align navigation to the right -->
+	        <div class="mdl-layout-spacer"></div>
+	        <!-- navigation. we hide it in small screens. -->
+	        <nav class="mdl-navigation mdl-layout--large-screen-only">
+				    {{#if currentUser}}
+				        {{ fullUserName }} - <a href="{{pathFor route='home'}}" class="mdl-navigation__link saml-logout">Logout</a>
+				    {{else}}
+				        <a href="{{pathFor route='home'}}" class="mdl-navigation__link saml-login" data-provider="TotvsLabs">Login with Fluig Identity</a>
+				    {{/if}}
+	        </nav>
+	      </div>
+	    </header>
+	    <div class="mdl-layout__drawer">
+	      <span class="mdl-layout-title">Menu</span>
+	      <nav class="mdl-navigation">
+	      	<a href="{{pathFor route='home'}}" class="mdl-navigation__link">Home</a>
+					{{#if isInRole 'admin'}}
+						<a class="mdl-navigation__link" href="/eventForm">Cadastro de Evento</a>
+					{{/if}}
+	      </nav>
+	    </div>
+			<main class="mdl-layout__content">
+				<div class="page-content">
+
+					{{> yield}}
+
+				</div>
+			</main>
+	  </div>
+	</body>
+</template>
