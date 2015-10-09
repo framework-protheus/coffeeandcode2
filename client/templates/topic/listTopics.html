@@ -1,25 +1,33 @@
 <template name="listTopics">
-  {{#each topics}}
-    <div class="topics">
-      <p>Descrição: {{desc}}</p>
-      <p>Instrutor:
-      {{#if instructor._id}}
-        {{instructor.name}}
-      {{else}}
-        {{#if currentUser}}
-          <button id="assign" class="btn btn-default instructor_btn">Seja o instrutor desse tópico!</button>
-        {{/if}}
-      {{/if}}
-      </p>
-      <br>
-      Curtidas: {{likes}}<br>
-      {{#if currentUser}}
-        {{#if userHaveLiked}}
-          <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
+  <div>
+    <select name="listOptions" id="listTopicsOptions">
+      <option {{selectedSortOption "lessVotes"}} value="lessVotes">Menos votos</option>
+      <option {{selectedSortOption "moreVotes"}} value="moreVotes">Mais votos</option>
+      <option {{selectedSortOption "newest"}} value="newest">Mais novos</option>
+      <option {{selectedSortOption "oldest"}} value="oldest">Mais antigos</option>
+    </select>
+    {{#each topics}}
+      <div class="topics">
+        <p>Descrição: {{desc}}</p>
+        <p>Instrutor:
+        {{#if instructor._id}}
+          {{instructor.name}}
         {{else}}
-          <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
+          {{#if currentUser}}
+            <button id="assign" class="btn btn-default instructor_btn">Seja o instrutor desse tópico!</button>
+          {{/if}}
         {{/if}}
-      {{/if}}
-    </div>
-  {{/each}}
+        </p>
+        <br>
+        Curtidas: {{likes}}<br>
+        {{#if currentUser}}
+          {{#if userHaveLiked}}
+            <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
+          {{else}}
+            <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
+          {{/if}}
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
 </template>

@@ -1,5 +1,5 @@
 Meteor.publish("topics", function () {
-  return Topics.find();
+  	return Topics.find();
 });
 
 Meteor.publish("events", function () {

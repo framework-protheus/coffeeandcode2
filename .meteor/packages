@@ -28,3 +28,4 @@ velocity:console-reporter
 velocity:html-reporter
 felipeconti:accounts-saml
 zodiase:mdl
+reactive-var
