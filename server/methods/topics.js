@@ -1,61 +1,116 @@
 Meteor.settings.methods.topics = {
-	insert: function (desc, instructor) {
-		//Make sure the user is logged in before inserting a task
-		if (! Meteor.userId()) {
-		 	throw new Meteor.Error("not-authorized");
-		};
+  insert: function (desc, instructor) {
+    //Make sure the user is logged in before inserting a task
+    if (!Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    };
 
-		Topics.insert({
-			desc: desc,
-			instructor: instructor,
-			likes: 0
-			// username: Meteor.user().username
-		});
-	},
-	delete: function (topicsId) {
-		Topics.remove(topicsId);
-	},
-	update: function (topicId, desc, instructor) {
-		Topics.update(topicsId, { $set: { desc: desc, instructor: instructor} });
-	},
-	like: function (topicId) {
-		var userId = Meteor.userId();
-		if (!userId)
-			throw new Meteor.Error("not-authorized");
+    Topics.insert({
+      desc: desc,
+      instructor: instructor,
+      likes: 0
+        // username: Meteor.user().username
+    });
+  },
+  delete: function (topicsId) {
+    Topics.remove(topicsId);
+  },
+  update: function (topicId, desc, instructor) {
+    Topics.update(topicsId, {
+      $set: {
+        desc: desc,
+        instructor: instructor
+      }
+    });
+  },
+  like: function (topicId) {
+    var userId = Meteor.userId();
+    if (!userId)
+      throw new Meteor.Error("not-authorized");
 
-		Topics.update(topicId, { $inc: { likes: 1}, $push: {likers: userId} });
-	},
-	dislike: function (topicId) {
-		var userId = Meteor.userId();
-		if (!userId)
-			throw new Meteor.Error("not-authorized");
+    Topics.update(topicId, {
+      $inc: {
+        likes: 1
+      },
+      $push: {
+        likers: userId
+      }
+    });
+  },
+  dislike: function (topicId) {
+    var userId = Meteor.userId();
+    if (!userId)
+      throw new Meteor.Error("not-authorized");
 
-		var query = { $and : [
-							 { _id   : topicId } ,
-							 { likers: {$in: [userId] } }
-							 ]};
-		var topic = Topics.findOne(query);
-		if(topic)
-			Topics.update(topicId, { $inc: { likes: -1}, $pop: {likers: userId} });
-	},
-	assign: function(topicId) {
-		var user = Meteor.user();
-		if (! user)
-			throw new Meteor.Error("not-authorized");
+    var query = {
+      $and: [
+        {
+          _id: topicId
+        },
+        {
+          likers: {
+            $in: [userId]
+          }
+        }
+							 ]
+    };
+    var topic = Topics.findOne(query);
+    if (topic)
+      Topics.update(topicId, {
+        $inc: {
+          likes: -1
+        },
+        $pop: {
+          likers: userId
+        }
+      });
+  },
+  setLiker: function (topicId, likes) {
+    var userId = Meteor.userId();
+    if (!userId)
+      throw new Meteor.Error("not-authorized");
+    var topic = Topics.findOne(topicId);
 
-		var query = { $and : [
-			{ _id   : topicId } ,
-			{ "instructor._id": null }
-		]};
+    if (topic){
+      var nUpdated = Topics.update(
+        { _id: topicId, "likers.userId": userId },
+        { $set: { "likers.$.likes": likes } }
+      );
 
-		var topic = Topics.findOne(query);
+      if (nUpdated === 0)
+        Topics.update(topicId,
+          { $push: { likers: {userId: userId, likes: likes } } }
+      );
+    };
+  },
+  assign: function (topicId) {
+    var user = Meteor.user();
+    if (!user)
+      throw new Meteor.Error("not-authorized");
 
-		if(topic){
-			var instructor = {
-				_id  : user._id,
-				name : user.username
-			};
-			Topics.update(topicId, {$set: {instructor : instructor}});
-		}
-	},
+    var query = {
+      $and: [
+        {
+          _id: topicId
+        },
+        {
+          "instructor._id": null
+        }
+		]
+    };
+
+    var topic = Topics.findOne(query);
+
+    if (topic) {
+      var instructor = {
+        _id: user._id,
+        name: user.username
+      };
+      Topics.update(topicId, {
+        $set: {
+          instructor: instructor
+        }
+      });
+    }
+  },
 };

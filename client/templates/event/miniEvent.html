@@ -6,7 +6,7 @@
 		{{#if topic}}
 			<p>Descrição: {{topic.desc}}</p>
 			<p>Instrutor: {{topic.instructor.name}}</p>
-			<p>Votos: {{topic.likes}}</p>
+			<p>Votos: {{getLikes topic._id}}</p>
 		{{else}}
 			<p>Nenhum tópico para este evento</p>
 		{{/if}}

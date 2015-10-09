@@ -52,6 +52,9 @@ Template.listTopics.helpers({
   },
   selectedSortOption: function(option){
     return Template.instance().sort.get() == option? 'selected': '';
+  },
+  getLikes: function(topicId){
+    return Topics.getLikes(topicId);
   }
 });
 

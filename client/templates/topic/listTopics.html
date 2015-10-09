@@ -19,13 +19,11 @@
         {{/if}}
         </p>
         <br>
-        Curtidas: {{likes}}<br>
+        Curtidas: {{getLikes _id}}<br>
         {{#if currentUser}}
-          {{#if userHaveLiked}}
-            <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
-          {{else}}
-            <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
-          {{/if}}
+          <br>
+          Dê seu voto:<br>
+          {{> starTopic}}
         {{/if}}
       </div>
     {{/each}}

@@ -11,5 +11,8 @@ Template.miniEvent.helpers({
       topic = topic[0]
     }
     return topic;
+  },
+  getLikes: function(topicId){
+    return Topics.getLikes(topicId);
   }
 });
