@@ -6,7 +6,8 @@ Template.newTopic.events({
  
     // Get value from form element
     var desc = template.find("#desc");
-    Meteor.call("topics.insert", desc.value);
+    if (desc.value)
+        Meteor.call("topics.insert", desc.value);
     desc.value ="";
     event.currentTarget.disable = false
   }
