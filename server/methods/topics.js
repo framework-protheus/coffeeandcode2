@@ -1,9 +1,14 @@
+var validAndGetUser = function(){
+  var user = Meteor.user();
+  if (!user)
+    throw new Meteor.Error("not-authorized");  
+  return user;
+};
+
 Meteor.settings.methods.topics = {
   insert: function (desc, instructor) {
     //Make sure the user is logged in before inserting a task
-    if (!Meteor.userId()) {
-      throw new Meteor.Error("not-authorized");
-    };
+    validAndGetUser();
 
     Topics.insert({
       desc: desc,
@@ -23,80 +28,30 @@ Meteor.settings.methods.topics = {
       }
     });
   },
-  like: function (topicId) {
-    var userId = Meteor.userId();
-    if (!userId)
-      throw new Meteor.Error("not-authorized");
-
-    Topics.update(topicId, {
-      $inc: {
-        likes: 1
-      },
-      $push: {
-        likers: userId
-      }
-    });
-  },
-  dislike: function (topicId) {
-    var userId = Meteor.userId();
-    if (!userId)
-      throw new Meteor.Error("not-authorized");
-
-    var query = {
-      $and: [
-        {
-          _id: topicId
-        },
-        {
-          likers: {
-            $in: [userId]
-          }
-        }
-							 ]
-    };
-    var topic = Topics.findOne(query);
-    if (topic)
-      Topics.update(topicId, {
-        $inc: {
-          likes: -1
-        },
-        $pop: {
-          likers: userId
-        }
-      });
-  },
   setLiker: function (topicId, likes) {
-    var userId = Meteor.userId();
-    if (!userId)
-      throw new Meteor.Error("not-authorized");
+    var user = validAndGetUser();
     var topic = Topics.findOne(topicId);
 
     if (topic){
       var nUpdated = Topics.update(
-        { _id: topicId, "likers.userId": userId },
+        { _id: topicId, "likers.userId": user._id },
         { $set: { "likers.$.likes": likes } }
       );
 
       if (nUpdated === 0)
         Topics.update(topicId,
-          { $push: { likers: {userId: userId, likes: likes } } }
-      );
+          { $push: { likers: { userId: user._id, likes: likes } } }
+        );
     };
   },
   assign: function (topicId) {
-    var user = Meteor.user();
-    if (!user)
-      throw new Meteor.Error("not-authorized");
+    var user = validAndGetUser();
 
     var query = {
       $and: [
-        {
-          _id: topicId
-        },
-        {
-          "instructor._id": null
-        }
-		]
+        {_id: topicId},
+        {"instructor._id": null}
+		  ]
     };
 
     var topic = Topics.findOne(query);
