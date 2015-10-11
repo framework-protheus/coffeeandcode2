@@ -59,16 +59,6 @@ Template.listTopics.helpers({
 });
 
 Template.listTopics.events({
-  'click #countLike': function (event, template) {
-    event.currentTarget.disable = true
-    Meteor.call("topics.like", this._id)
-    event.currentTarget.disable = false
-  },
-  'click #dislike': function (event, template) {
-    event.currentTarget.disable = true
-    Meteor.call("topics.dislike", this._id);
-    event.currentTarget.disable = false
-  },
   'click #assign': function (event, template) {
     Meteor.call("topics.assign", this._id);
   },

@@ -42,6 +42,10 @@ Meteor.settings.methods.topics = {
         Topics.update(topicId,
           { $push: { likers: { userId: user._id, likes: likes } } }
         );
+
+      // Atualizo a propriedade utilizada para filtrar os tópicos pela quantidade de likes.
+      Topics.update(topicId, { $set: { likes: Topics.getLikes(topicId) } } );
+
     };
   },
   assign: function (topicId) {
