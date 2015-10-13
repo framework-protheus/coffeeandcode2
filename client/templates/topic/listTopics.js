@@ -6,17 +6,6 @@ Template.listTopics.onCreated(function (){
   instance.autorun(function() {
     var sort = instance.sort.get();
 
-   /* var subscription = instance.subscribe('topics',sort);
-
-    // if subscription is ready, set limit to newLimit
-    if (subscription.ready()) {
-      console.log("> Received "+sort+" posts. \n\n")
-      instance.sort.set(sort);
-    } else {
-      console.log("> Subscription is not ready yet. \n\n");
-    }*/
-
-
     instance.topics = function() { 
       switch(instance.sort.get()){
         case "oldest":
@@ -39,7 +28,6 @@ Template.listTopics.onCreated(function (){
 });
 
 Template.listTopics.helpers({
-	//topics: Topics.find(),
   topics: function(){
      return Template.instance().topics();
   },
