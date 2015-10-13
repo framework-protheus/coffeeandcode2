@@ -16,6 +16,7 @@ Template.main.events({
 
 Template.main.helpers({
   fullUserName: function(){
-    return Meteor.user().profile.fullname
+    var user = Meteor.user()
+    return user.profile.fullname || user.username || user.emails[0].address; 
   } 
 });
