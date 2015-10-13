@@ -8,8 +8,8 @@
     </select>
     {{#each topics}}
       <div class="topics">
-        <p>Descrição: {{desc}}</p>
-        <p>Instrutor:
+        <p><b>Descrição:</b> {{desc}}</p>
+        <p><b>Instrutor:</b>
         {{#if instructor._id}}
           {{instructor.name}}
         {{else}}
@@ -19,13 +19,11 @@
         {{/if}}
         </p>
         <br>
-        Curtidas: {{likes}}<br>
+        <b>Votos:</b> {{getLikes _id}}<br>
         {{#if currentUser}}
-          {{#if userHaveLiked}}
-            <button id='dislike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-down"></span> Dislike me</button>
-          {{else}}
-            <button id='countLike' class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Like me</button>
-          {{/if}}
+          <br>
+          <b>Dê seu voto:</b><br>
+          {{> starTopic}}
         {{/if}}
       </div>
     {{/each}}

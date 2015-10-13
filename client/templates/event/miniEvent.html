@@ -1,12 +1,12 @@
 <template name="miniEvent">
 	<div class="mini_event">
-		<p>Data: {{formatDate date}}</p>
+		<p><b>Data:</b> {{formatDate date}}</p>
 		<p><span class="information_open">ABERTO</span></p>
 		<p><span class="information_close">CONFIRMADO</span></p>
 		{{#if topic}}
-			<p>Descrição: {{topic.desc}}</p>
-			<p>Instrutor: {{topic.instructor.name}}</p>
-			<p>Votos: {{topic.likes}}</p>
+			<p><b>Descrição:</b> {{topic.desc}}</p>
+			<p><b>Instrutor:</b> {{topic.instructor.name}}</p>
+			<p><b>Votos:</b> {{getLikes topic._id}}</p>
 		{{else}}
 			<p>Nenhum tópico para este evento</p>
 		{{/if}}

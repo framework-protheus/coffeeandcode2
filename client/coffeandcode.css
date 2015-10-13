@@ -13,7 +13,7 @@ button, input{
 
 
 
-.dislike, .countLike, .instructor_btn{
+.instructor_btn{
 	margin-bottom: 8px;
 }
 
@@ -37,7 +37,7 @@ button, input{
 
 .rank{
 	position: fixed;
-	width: 40%;
+	width: 36%;
 }
 
 .mini_event{
