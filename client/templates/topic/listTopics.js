@@ -43,12 +43,18 @@ Template.listTopics.helpers({
   },
   getLikes: function(topicId){
     return Topics.getLikes(topicId);
+  },
+  canUnassign: function(){
+    return this.instructor._id === Meteor.userId();
   }
 });
 
 Template.listTopics.events({
   'click #assign': function (event, template) {
     Meteor.call("topics.assign", this._id);
+  },
+  'click #unassign': function (event, template) {
+    Meteor.call("topics.unAssign", this._id);
   },
   'change #listTopicsOptions': function(event, template){
     template.sort.set(event.currentTarget.value)

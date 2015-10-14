@@ -63,7 +63,7 @@ Meteor.settings.methods.topics = {
     if (topic) {
       var instructor = {
         _id: user._id,
-        name: user.username
+        name: user.profile.fullname || user.username || user.emails[0].address
       };
       Topics.update(topicId, {
         $set: {
@@ -72,4 +72,19 @@ Meteor.settings.methods.topics = {
       });
     }
   },
+  unAssign: function (topicId) {
+    var user = validAndGetUser();
+
+    var topic = Topics.findOne({$and: [
+      {_id: topicId},
+      {"instructor._id": user._id}
+    ]});
+
+    if (topic)
+      Topics.update(topicId, {
+        $set: {
+          instructor: null
+        }
+      }); 
+  }
 };

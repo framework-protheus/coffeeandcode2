@@ -12,9 +12,15 @@
         <p><b>Instrutor:</b>
         {{#if instructor._id}}
           {{instructor.name}}
+
+          {{#if canUnassign}}
+            <button id="unassign" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">remove</i>
+            </button>
+          {{/if}}
         {{else}}
           {{#if currentUser}}
-            <button id="assign" class="btn btn-default instructor_btn">Seja o instrutor desse tópico!</button>
+            <button id="assign" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect instructor_btn">Seja o instrutor desse tópico!</button>
           {{/if}}
         {{/if}}
         </p>
