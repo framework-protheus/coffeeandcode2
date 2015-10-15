@@ -1,0 +1,6 @@
+Meteor.settings.saml = [{
+	"provider":"", // TotvsLabs
+	"entryPoint":"", // https://protheus-dev.thecloudpass.com/cloudpass/launchpad/launchApp/.../...
+	"issuer": "http://localhost:3000", // Replace with url of your app
+	"cert":"" // MIICizCCAfQCCQCY8tKaMc0BMjANBgkqh...
+}]
