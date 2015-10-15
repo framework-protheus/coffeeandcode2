@@ -9,7 +9,7 @@
 	        <!-- add spacer, to align navigation to the right -->
 	        <div class="mdl-layout-spacer"></div>
 	        <!-- navigation. we hide it in small screens. -->
-	        <nav class="mdl-navigation mdl-layout--large-screen-only">
+	        <nav class="mdl-navigation">
 				    {{#if currentUser}}
 				        {{ fullUserName }} - <a href="{{pathFor route='home'}}" class="mdl-navigation__link saml-logout">Logout</a>
 				    {{else}}
