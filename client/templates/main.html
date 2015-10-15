@@ -22,9 +22,10 @@
 	      <span class="mdl-layout-title">Menu</span>
 	      <nav class="mdl-navigation">
 	      	<a href="{{pathFor route='home'}}" class="mdl-navigation__link">Home</a>
-					{{#if isInRole 'admin'}}
-						<a class="mdl-navigation__link" href="/eventForm">Cadastro de Evento</a>
-					{{/if}}
+				{{#if isInRole 'admin'}}
+					<a class="mdl-navigation__link" href="/eventForm">Cadastro de Evento</a>
+					<a class="mdl-navigation__link" href="/topicForm">Cadastro de Tópico</a>
+				{{/if}}
 	      </nav>
 	    </div>
 			<main class="mdl-layout__content">

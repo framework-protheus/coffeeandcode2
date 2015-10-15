@@ -22,6 +22,11 @@ Router.route('/eventForm', {
   template: 'eventForm'
 });
 
+Router.route('/topicForm', {
+  name: 'topicForm',
+  template: 'topicForm'
+});
+
 Router.configure({
     layoutTemplate: 'main'
 });

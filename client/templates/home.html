@@ -1,9 +1,6 @@
 <template name="home">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--7-col">
-      {{#if currentUser}}
-        {{> newTopic}}
-      {{/if}}
       {{> listTopics}}
     </div>
     <div class="mdl-cell mdl-cell--5-col">

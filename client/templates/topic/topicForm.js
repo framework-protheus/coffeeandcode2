@@ -1,4 +1,4 @@
-Template.newTopic.events({
+Template.topicForm.events({
   'click #submitForm': function (event, template) {  
     event.currentTarget.disable = true
     // Prevent default browser form submit
