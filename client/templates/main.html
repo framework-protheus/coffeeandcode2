@@ -1,40 +1,32 @@
 <template name="main">
-	<body> <!-- THIS BODY Is NECESSARY JUST TO MAKE TEMAPLATE EVENTS WORKS (https://github.com/Zodiase/meteor-mdl/issues/2) -->
-	  <!-- always shows a header, even in smaller screens. -->
-	  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-	    <header class="mdl-layout__header">
-	      <div class="mdl-layout__header-row">
-	        <!-- title -->
-	        <span class="mdl-layout-title">Coffee and code</span>
-	        <!-- add spacer, to align navigation to the right -->
-	        <div class="mdl-layout-spacer"></div>
-	        <!-- navigation. we hide it in small screens. -->
-	        <nav class="mdl-navigation">
-				    {{#if currentUser}}
-				        {{ fullUserName }} - <a href="{{pathFor route='home'}}" class="mdl-navigation__link saml-logout">Logout</a>
-				    {{else}}
-				        <a href="{{pathFor route='home'}}" class="mdl-navigation__link saml-login" data-provider="TotvsLabs">Login with Fluig Identity</a>
-				    {{/if}}
-	        </nav>
-	      </div>
-	    </header>
-	    <div class="mdl-layout__drawer">
-	      <span class="mdl-layout-title">Menu</span>
-	      <nav class="mdl-navigation">
-	      	<a href="{{pathFor route='home'}}" class="mdl-navigation__link">Home</a>
+	<div class="navbar navbar-default navbar_cc" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="{{pathFor route='home'}}">Coffee and Code</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-left">
 				{{#if isInRole 'admin'}}
-					<a class="mdl-navigation__link" href="/eventForm">Cadastro de Evento</a>
-					<a class="mdl-navigation__link" href="/topicForm">Cadastro de Tópico</a>
+					<li><a href="/eventForm">Cadastro de Evento</a></li>
+					<li><a href="/topicForm">Cadastro de Tópico</a></li>
 				{{/if}}
-	      </nav>
-	    </div>
-			<main class="mdl-layout__content">
-				<div class="page-content">
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				{{#if currentUser}}
+					<li><a>{{ fullUserName }}</a></li>
+					<li><a href="{{pathFor route='home'}}" class="saml-logout">Logout</a></li>
+				{{else}}
+					<li><a href="{{pathFor route='home'}}" class="saml-login" data-provider="TotvsLabs">Login with Fluig Identity</a></li>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
 
-					{{> yield}}
+	{{> yield}}
 
-				</div>
-			</main>
-	  </div>
-	</body>
 </template>

@@ -1,14 +1,17 @@
 <template name="listTopics">
   <div>
-  Ordenado por: 
-    <select name="listOptions" id="listTopicsOptions">
-      <option {{selectedSortOption "lessVotes"}} value="lessVotes">Menos votos</option>
-      <option {{selectedSortOption "moreVotes"}} value="moreVotes">Mais votos</option>
-      <option {{selectedSortOption "newest"}} value="newest">Mais novos</option>
-      <option {{selectedSortOption "oldest"}} value="oldest">Mais antigos</option>
-    </select>
-    <br>
-    <br>
+    <div class="topics">
+      <br>
+      <span class="order-by">Ordenado por: </span>
+      <select name="listOptions" id="listTopicsOptions">
+        <option {{selectedSortOption "lessVotes"}} value="lessVotes">Menos votos</option>
+        <option {{selectedSortOption "moreVotes"}} value="moreVotes">Mais votos</option>
+        <option {{selectedSortOption "newest"}} value="newest">Mais novos</option>
+        <option {{selectedSortOption "oldest"}} value="oldest">Mais antigos</option>
+      </select>
+      <br>
+      <br>
+    </div>
     {{#each topics}}
       <div class="topics">
         <p><b>Descrição:</b> {{desc}}</p>
@@ -17,13 +20,13 @@
           {{instructor.name}}
 
           {{#if canUnassign}}
-            <button id="unassign" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+            <button id="unassign">
               <i class="material-icons">remove</i>
             </button>
           {{/if}}
         {{else}}
           {{#if currentUser}}
-            <button id="assign" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect instructor_btn">Seja o instrutor desse tópico!</button>
+            <button id="assign" class="instructor_btn">Seja o instrutor desse tópico!</button>
           {{/if}}
         {{/if}}
         </p>

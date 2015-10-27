@@ -11,6 +11,13 @@ Template.main.events({
   'click .saml-logout': function(event, template){
     event.preventDefault();
     Meteor.logout();
+  },
+  'click .nav li': function(event, template){
+    $(".nav").find(".active").removeClass("active");
+    $(event.target).parent().addClass("active");
+  },
+  'click .navbar-brand': function(event, template){
+    $(".nav").find(".active").removeClass("active");
   }
 });
 

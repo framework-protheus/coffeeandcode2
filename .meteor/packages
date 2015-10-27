@@ -27,6 +27,7 @@ sanjo:jasmine
 velocity:console-reporter
 velocity:html-reporter
 felipeconti:accounts-saml
-zodiase:mdl
 reactive-var
 dandv:jquery-rateit
+mrt:bootstrap-3
+ian:accounts-ui-bootstrap-3
