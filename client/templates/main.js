@@ -1,3 +1,7 @@
+var removeActiveFromNav = function(){
+  $(".nav").find(".active").removeClass("active");
+};
+
 Template.main.events({
   'click .saml-login': function(event, template){
     event.preventDefault();
@@ -13,11 +17,11 @@ Template.main.events({
     Meteor.logout();
   },
   'click .nav li': function(event, template){
-    $(".nav").find(".active").removeClass("active");
+    removeActiveFromNav();
     $(event.target).parent().addClass("active");
   },
   'click .navbar-brand': function(event, template){
-    $(".nav").find(".active").removeClass("active");
+    removeActiveFromNav();
   }
 });
 
