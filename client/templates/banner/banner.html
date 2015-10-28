@@ -1,0 +1,42 @@
+<template name="banner">
+
+	<div class="container">
+
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Coffee And Code</h1>
+				<p>...</p>
+				<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+				<p>asjdahsdkjahsdkjahdkjahsdkjahdkjashdkjaskjasdkh</p>
+			</div>
+		</div>
+
+		<div class="row">
+			{{> banner_current}}
+		</div>
+
+		<div class="row">
+			{{> banner_next}}
+			{{> banner_next}}
+			{{> banner_next}}
+		</div>
+
+	</div>
+
+</template>
+
+<template name="banner_current">
+	<div class="col-md-12">
+		<div class="form_container">
+			Título
+		</div>
+	</div>
+</template>
+
+<template name="banner_next">
+	<div class="col-md-4">
+		<div class="form_container">
+			{{title}}
+		</div>
+	</div>
+</template>
