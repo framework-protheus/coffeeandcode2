@@ -1,12 +1,17 @@
 <template name="home">
-  <div class="container">
-  	<div class="row">
-		<div class="col-lg-7">
-			{{> listTopics}}
+	<div class="container">
+  		<div class="jumbotron">
+			<h1>Coffee and {{ getCode }}</h1>
+			<p>Venha tomar um café compartilhando seu conhecimento e ideias.</p>
+			<p><a class="btn btn-primary btn-lg" href="{{pathFor route='about'}}" role="button">Saiba mais...</a></p>
 		</div>
-		<div class="col-lg-5">
-			{{> rankEvent}}
+		<div class="row">
+			<div class="col-lg-7">
+				{{> listTopics}}
+			</div>
+			<div class="col-lg-5">
+				{{> rankEvent}}
+			</div>
 		</div>
 	</div>
-  </div>
 </template>

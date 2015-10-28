@@ -32,6 +32,11 @@ Router.route('/banner', {
   template: 'banner'
 });
 
+Router.route('/about', {
+  name: 'about',
+  template: 'about'
+});
+
 Router.configure({
     layoutTemplate: 'main'
 });

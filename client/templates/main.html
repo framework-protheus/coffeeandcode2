@@ -20,9 +20,9 @@
 				{{#if currentUser}}
 					<li><a><img src={{ gravatarURL }} alt="..." class="img-circle img-responsive center-block"/></a></li>
 					<li><a >{{ fullUserName }}</a></li>
-					<li><a href="{{pathFor route='home'}}" class="saml-logout">Logout</a></li>
+					<li><a href="{{pathFor route='home'}}" class="saml-logout">Sair</a></li>
 				{{else}}
-					<li><a href="{{pathFor route='home'}}" class="saml-login" data-provider="TotvsLabs">Login with Fluig Identity</a></li>
+					<li><a href="{{pathFor route='home'}}" class="saml-login" data-provider="TotvsLabs">Acesse com seu usuário TOTVS</a></li>
 				{{/if}}
 			</ul>
 		</div>
