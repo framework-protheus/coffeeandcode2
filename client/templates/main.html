@@ -18,7 +18,8 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				{{#if currentUser}}
-					<li><a>{{ fullUserName }}</a></li>
+					<li><a><img src={{ gravatarURL }} alt="..." class="img-circle img-responsive center-block"/></a></li>
+					<li><a >{{ fullUserName }}</a></li>
 					<li><a href="{{pathFor route='home'}}" class="saml-logout">Logout</a></li>
 				{{else}}
 					<li><a href="{{pathFor route='home'}}" class="saml-login" data-provider="TotvsLabs">Login with Fluig Identity</a></li>

@@ -29,5 +29,11 @@ Template.main.helpers({
   fullUserName: function(){
     var user = Meteor.user()
     return user.profile.fullname || user.username || user.emails[0].address; 
+  },
+  gravatarURL: function(){
+    var user = Meteor.user()
+    return Gravatar.imageUrl(user.emails[0].address,{
+      size: 34
+    });
   } 
 });
