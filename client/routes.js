@@ -27,6 +27,11 @@ Router.route('/topicForm', {
   template: 'topicForm'
 });
 
+Router.route('/banner', {
+  name: 'banner',
+  template: 'banner'
+});
+
 Router.configure({
     layoutTemplate: 'main'
 });
