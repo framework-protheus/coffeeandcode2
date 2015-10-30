@@ -1,7 +1,6 @@
 <template name="listTopics">
   <div>
     <div class="topics">
-      <br>
       <span class="order-by">Ordenado por: </span>
       <select name="listOptions" id="listTopicsOptions">
         <option {{selectedSortOption "lessVotes"}} value="lessVotes">Menos votos</option>
@@ -9,7 +8,6 @@
         <option {{selectedSortOption "newest"}} value="newest">Mais novos</option>
         <option {{selectedSortOption "oldest"}} value="oldest">Mais antigos</option>
       </select>
-      <br>
       <br>
     </div>
     {{#each topics}}
