@@ -15,16 +15,14 @@
         <p><b>Descrição:</b> {{desc}}</p>
         <p><b>Instrutor:</b>
         {{#if instructor._id}}
-          {{instructor.name}}
-
           {{#if canUnassign}}
-            <button id="unassign">
-              <i class="material-icons">remove</i>
-            </button>
+            <button id="unassign" type="button" class="btn btn-danger btn-xs instructor_btn"> {{instructor.name}}&nbsp;&nbsp;x</button>
+          {{else}}
+            {{instructor.name}}
           {{/if}}
         {{else}}
           {{#if currentUser}}
-            <button id="assign" class="instructor_btn">Seja o instrutor desse tópico!</button>
+            <button id="assign" type="button" class="btn btn-default btn-xs instructor_btn">Seja o instrutor desse tópico!</button>
           {{/if}}
         {{/if}}
         </p>
