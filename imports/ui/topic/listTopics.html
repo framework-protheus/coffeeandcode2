@@ -1,0 +1,41 @@
+<template name="listTopics">
+  <div>
+    <div class="topics">
+      <span class="order-by">Ordenado por: </span>
+      <select name="listOptions" id="listTopicsOptions">
+        <option {{selectedSortOption "lessVotes"}} value="lessVotes">Menos votos</option>
+        <option {{selectedSortOption "moreVotes"}} value="moreVotes">Mais votos</option>
+        <option {{selectedSortOption "newest"}} value="newest">Mais novos</option>
+        <option {{selectedSortOption "oldest"}} value="oldest">Mais antigos</option>
+      </select>
+      <br>
+    </div>
+    {{#each topic in topics}}
+      {{#with topic}}
+        <div class="topics">
+          <p><b>Descrição:</b> {{desc}}</p>
+          <p><b>Instrutor:</b>
+          {{#if instructor._id}}
+            {{#if canUnassign}}
+              <button id="unassign" type="button" class="btn btn-danger btn-xs instructor_btn"> {{instructor.name}}&nbsp;&nbsp;x</button>
+            {{else}}
+              {{instructor.name}}
+            {{/if}}
+          {{else}}
+            {{#if currentUser}}
+              <button id="assign" type="button" class="btn btn-default btn-xs instructor_btn">Seja o instrutor desse tópico!</button>
+            {{/if}}
+          {{/if}}
+          </p>
+          <br>
+          <b>Votos:</b> {{getLikes _id}}<br>
+          {{#if currentUser}}
+            <br>
+            <b>Dê seu voto:</b><br>
+            {{> starTopic}}
+          {{/if}}
+        </div>
+      {{/with}}
+    {{/each}}
+  </div>
+</template>

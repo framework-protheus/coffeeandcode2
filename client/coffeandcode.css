@@ -1,0 +1,114 @@
+/* CSS declarations go here */
+body{
+	color: #666;
+}
+
+p{
+	margin-bottom: 3px;
+}
+
+button, input{
+	margin: 6px 0;
+}
+
+.navbar_cc{
+	/*background: linear-gradient(to bottom, #113859, #4A6982);*/
+	background: #0C60B0;
+	color: white;
+}
+
+.dislike, .countLike, .instructor_btn{
+	margin-bottom: 8px;
+}
+
+
+.topicForm{
+	padding: 0 25px 10px 0;
+}
+
+.topics, .form_container, .rank{
+	box-shadow: 5px 5px 5px #888888;
+	padding: 10px 15px 10px 25px;
+	margin-bottom:15px;
+	border: 1px solid #bbb;
+}
+
+.subtitle{
+	margin:8px 0 12px 0;
+	padding-bottom:6px;
+	border-bottom: 1px solid #bbb;
+}
+
+.rank{
+	position: fixed;
+	width: 36%;
+}
+
+.mini_event{
+	margin-top: 15px;
+}
+
+.information_open{
+	color: red;
+	cursor: help;
+}
+.information_open::after{
+	content: " - Evento aberto ainda dependendo de votação!";
+	color: red;
+	display: none;
+}
+.information_open:hover::after{
+	display: inline;
+}
+
+
+.information_close{
+	color: green;
+	cursor: help;
+}
+.information_close::after{
+	content: " - Evento marcado para data acima!";
+	color: green;
+	display: none;
+}
+.information_close:hover::after{
+	display: inline;
+}
+
+.order-by{
+	font-weight: bold;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav > li > a,
+.saml-logout {
+	color:white;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover,
+.saml-logout:hover {
+	color:white;
+}
+
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-nav > li > a:active,
+.saml-logout:active {
+	color:white;
+}
+
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav > li > a:focus,
+.saml-logout:focus {
+	color:white;
+}
+
+.navbar-default .navbar-nav > .active > a{
+	background-color: #09447D;
+	color: white;
+}
+
+.navbar-default .navbar-nav > .active > a:focus{
+	background-color: #09447D;
+	color: white;
+}
