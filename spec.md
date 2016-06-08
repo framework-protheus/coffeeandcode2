@@ -12,7 +12,11 @@ quando logado apresentará a imagen do usuário (Gravatar).
 
 ## Cadastro de tópico
 
+Apresentar um *form* aonde seja possível cadastrar titulo e descrição.
 
+Somente usuários logados poderão cadastrar tópicos.
+
+Deverá ser guardado a informação de qual usuário crio o tópico.
 
 ## Cadastro de evento
 
