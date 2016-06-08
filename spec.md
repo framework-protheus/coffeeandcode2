@@ -40,7 +40,7 @@ Nesta tela será apresentado todos os tópicos em que o usuário logado votou.
 
 ## Sobre
 
-
+Tela contento informaçoes referente a este projeto, como funciona, links para o github e qualquer outra informação relevante.
 
 ## *Banner*
 
