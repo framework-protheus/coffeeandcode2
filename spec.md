@@ -27,6 +27,13 @@ Apresentar um *form* aonde seja possível cadastrar as seguintes informações:
 
 Somente usuários logados poderão cadastrar eventos.
 
+## Página do evento
+
+Nesta tela será apresentado informações referente ao tópico do evento.
+
+Apenas o instrutor do tópico poderá editar as informaçoes nessa tela.
+O instrutor irá preencher um campo aonde será inserido dados no formato *markdown*. 
+
 ## Tópicos votados pelo usuário
 
 Nesta tela será apresentado todos os tópicos em que o usuário logado votou.
