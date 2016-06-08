@@ -44,4 +44,4 @@ Tela contento informaçoes referente a este projeto, como funciona, links para o
 
 ## *Banner*
 
-
+Página de publicidade, será apresentado informaóes como data do proximo evento, tópico e instrutor.
