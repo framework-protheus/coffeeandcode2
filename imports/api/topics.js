@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
-export const Topics = new Mongo.Collection('topics');
+export const Topics = new Mongo.Collection('topics',{idGeneration: 'MONGO'});
 
 if (Meteor.isServer) {
   // This code only runs on the server

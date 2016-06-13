@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
-export const Events = new Mongo.Collection('events');
+export const Events = new Mongo.Collection('events',{idGeneration: 'MONGO'});
 
 eventsSchema = new SimpleSchema({
 	date: {
