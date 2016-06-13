@@ -21,7 +21,7 @@
     "breadcrumbs"          : false,
     "pagination"           : true,
     "pager"                : true,
-    "labels"               : false,
+    "labels"               : true,
 
     "badges"               : false,
     "jumbotron"            : true,
@@ -42,7 +42,7 @@
 
     "affix"                : false,
     "alert"                : false,
-    "button"               : false,
+    "button"               : true,
     "collapse"             : false,
     "scrollspy"            : false,
     "tab"                  : false,
