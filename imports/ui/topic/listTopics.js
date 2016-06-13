@@ -28,7 +28,13 @@ Template.listTopics.onCreated(function (){
             query = {sort:{likes : 1}}
             break
       }
-      return Topics.find({},query);
+      query.reactive = false;
+      if(instance.subscriptionsReady()){
+        return Topics.find({},query).fetch();
+      }else{
+        return;
+      }
+
     }
   })
 
