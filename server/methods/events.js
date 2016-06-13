@@ -1,4 +1,4 @@
-import '../../imports/api/events.js';
+import {Events} from '../../imports/api/events.js';
 
 Meteor.settings.methods.events = {
   insert: function (date) {
