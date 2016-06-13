@@ -1,3 +1,6 @@
+import {Events} from '../imports/api/events.js';
+import {Topics} from '../imports/api/topics.js'
+
 Meteor.methods({
   initData: function () {
     Meteor.call("topics.insert", "servidor REST");
