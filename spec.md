@@ -3,16 +3,17 @@
 ## Home
 
 Nesta tela deverá conter uma lista com todos os tópico a serem votados.
-Essa lista deverá ser paginada em 10 tópicos, deverá ser possivel ordena-lá por Menos votos, Mais votos, Mais novos e Mais antigos.
+Essa lista deverá ser paginada em 10 tópicos, deverá ser possível ordená-la por Menos votos, Mais votos, Mais novos e Mais antigos.
 
 Somente usuários logados poderão votar nos tópicos e cadastrar novos.
 
 No topo da pagina deverá existir uma navbar que conterá o nome da página atual e as informções sobre o usuário.
 Quando o usuário estiver logado, apresentará a imagem do seu avatar (Gravatar).
+Também deverá existir uma opção de logout, para sair do sistema.
 
 ## Cadastro de tópico
 
-Apresentar um *form* aonde seja possível cadastrar título e descrição.
+*Form* com campos de título e descrição.
 
 Deverá ser guardado a informação de qual usuário criou o tópico.
 
@@ -20,9 +21,9 @@ Somente usuários logados poderão cadastrar tópicos.
 
 ## Cadastro de evento
 
-Apresentar um *form* aonde seja possível cadastrar as seguintes informações:
+*Form* com as seguintes informações:
 - Data do evento;
-- Data de corte (data em que será encerrada a votação no tópico do evento); 
+- Data de corte (data em que será encerrada a votação no tópico do evento);
 - Tópico do evento;
 
 Somente usuários administradores poderão cadastrar eventos.
@@ -31,8 +32,8 @@ Somente usuários administradores poderão cadastrar eventos.
 
 Nessa tela serão apresentadas informações referentes ao tópico do evento.
 
-Apenas o instrutor do tópico poderá editar as informações nessa tela.
-O instrutor irá preencher um campo aonde serão inseridos dados no formato *markdown*. 
+Apenas o instrutor do tópico e o Administrador do sistema poderam editar as informações nessa tela.
+O campo será um *textarea* que será formatado utilizando *markdown*.
 
 ## Tópicos votados pelo usuário
 
@@ -44,4 +45,4 @@ Tela contento informações referentes a esse projeto, como funciona, links para
 
 ## *Banner*
 
-Página de publicidade, serão apresentadas informações como data do proximo evento, tópico e instrutor.
+Página de publicidade, serão apresentadas informações como data do próximo evento, tópico e instrutor.
