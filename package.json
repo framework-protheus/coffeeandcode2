@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/framework-protheus/coffeeandcode/issues"
   },
-  "homepage": "https://github.com/framework-protheus/coffeeandcode#readme"
+  "homepage": "https://github.com/framework-protheus/coffeeandcode#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
