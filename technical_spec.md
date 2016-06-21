@@ -5,5 +5,5 @@
 
 #Front-end
 - Bootstrap
-- AngukarJS
-- Jquery
+- AngularJS
+- jQuery
