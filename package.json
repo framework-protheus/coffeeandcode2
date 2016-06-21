@@ -1,0 +1,19 @@
+{
+  "name": "coffeeandcode",
+  "version": "1.0.0",
+  "description": "Coffee and Code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/framework-protheus/coffeeandcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/framework-protheus/coffeeandcode/issues"
+  },
+  "homepage": "https://github.com/framework-protheus/coffeeandcode#readme"
+}
