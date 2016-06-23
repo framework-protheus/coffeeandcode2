@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 // create a schema
 var topicSchema = new Schema({
-    title: String
-  , description: { type: String, required: true, unique: true }
+    title: { type: String, required: true }
+  , description: { type: String, required: true }
 });
 
 // the schema is useless so far
