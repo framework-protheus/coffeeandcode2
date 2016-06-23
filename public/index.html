@@ -24,20 +24,41 @@
 				<div class="votes"> Votos: 10</div>
 			</div>
 			<div class="col-sm-7">
-				<p>Nome: Boas práticas com array</p>
-				<p>Descrição: Como utilizar arrays em ADVPL da melhor maneira</p>
-				<p>Instrutor: <a href=""><img src='http://photographersforanimals.org/wp-content/uploads/2014/08/Circle-dog.jpg' height="60px" width="60px"></a></p> 
+				<div class="row">
+					<div class="col-sm-8">
+						<p>Nome: Boas práticas com array</p>
+						<p>Descrição: Como utilizar arrays em ADVPL da melhor maneira</p>
+					</div>
+					<div class="col-sm-2">
+						<p>Instrutor</p>
+						<p><a href=""><img src='http://photographersforanimals.org/wp-content/uploads/2014/08/Circle-dog.jpg' height="60px" width="60px"></a></p>
+					</div>
+				</div> 
 			</div>
 			<div class="col-sm-3">
 				
+				<select id="backing2b">
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3" selected="selected">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<div class="rateit" data-rateit-backingfld="#backing2b"></div>
+
 			</div>
 		</div>
 
 		
 	</div>
 
-	<script src="bower_components/less/dist/less.min.js"></script>
 	<script src="bower_components/jQuery/dist/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/less/dist/less.min.js"></script>
+	<script src="bower_components/rateit/src/jquery.rateit.js"></script>
+	<script>
+		$('.rateit').rateit();
+	</script>
 </body>
 </html>
