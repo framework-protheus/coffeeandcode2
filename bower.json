@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "rateit": "^1.0.15",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "less": "^2.7.1"
   }
 }
