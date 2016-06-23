@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/bower_components/bootstrap-markdown-editor/dist/css/bootstrap-markdown-editor.css" rel="stylesheet">
+    </head>
+    <body onload="load()">
+        <textarea name="text" id="editor"># Titulo</textarea>
+
+        <script>
+            function load() {
+                $('#editor').markdownEditor({
+                    preview: true,
+                    onPreview: function (content, callback) {
+                        callback( marked(content) );
+                    }
+                });
+            }
+        </script>
+
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/bower_components/ace-builds/src-min/ace.js"></script>
+        <script src="/bower_components/bootstrap-markdown-editor/dist/js/bootstrap-markdown-editor.js"></script>
+        <script src="/bower_components/marked/lib/marked.js"></script>
+    </body>
+</html>
