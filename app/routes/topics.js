@@ -1,7 +1,5 @@
 'use strict';
-
+const topics = require('../controllers/topics.js');
 module.exports = function(app){
-  app.get('/topics', (req, res)=>{
-    res.end("topics")
-  })
+  app.get('/topics', topics.list);
 }
