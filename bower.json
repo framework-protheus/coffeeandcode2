@@ -1,0 +1,21 @@
+{
+  "name": "coffeeandcode",
+  "description": "Coffee and Code",
+  "main": "server.js",
+  "authors": [
+    "Totvs"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/framework-protheus/coffeeandcode",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "rateit": "^1.0.15",
+    "bootstrap": "^3.3.6"
+  }
+}
