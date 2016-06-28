@@ -1,5 +1,13 @@
 'use strict';
+
+const express = require('express');
+const router = express.Router();
 const topics = require('../controllers/topics.js');
-module.exports = function(app){
-  app.get('/topics', topics.list);
-}
+
+module.exports = function(app, passport) {
+  // router.use(passport.authenticate('local', {failureRedirect: '/register'}));
+
+  router.get('/', topics.list);
+
+  app.use('/topics', router);
+};

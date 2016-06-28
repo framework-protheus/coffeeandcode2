@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.6",
     "less": "^2.7.1",
     "bootstrap-markdown-editor": "bootstrap-markdown-editor#^2.0.1",
-    "marked": "^0.3.5"
+    "marked": "^0.3.5",
+    "font-awesome": "^4.6.3"
   }
 }
