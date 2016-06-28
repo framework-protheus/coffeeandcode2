@@ -1,6 +1,5 @@
 'use strict'
 const Topic = require('../models/topics.js');
-const assert = require('assert');
 module.exports = {
     list : function(req, res){
       // get all the users
