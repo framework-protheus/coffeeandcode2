@@ -10,4 +10,17 @@ module.exports = {
         res.end(JSON.stringify(topics));
       });
     }
+  , new : function(req, res){
+    let topic = new Topic({
+        title : req.body.title
+      , description : req.body.description
+    });
+    topic.save((err)=>{
+      if (err){
+        res.json(err);
+      }else{
+        res.json(topic);
+      }
+    })
+  }
 };
