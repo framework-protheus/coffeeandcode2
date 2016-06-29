@@ -16,8 +16,6 @@ mongoose.connect('mongodb://localhost:27017/coffeeandcode'); // connect to our d
 
 require('./config/passport')(passport);
 
-app.set('view engine', 'ejs'); // set up ejs for templating
-
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
