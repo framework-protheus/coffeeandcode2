@@ -24,11 +24,11 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
-  require('./topics')(app, passport);
+  require('./topics')(app, checkLogin);
 };
 
 // route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
+function checkLogin(req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
